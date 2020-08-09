@@ -13,7 +13,8 @@
 
 $router->post('uploadcsv', [
     'as' => 'uploadcsv',
-    'uses' => 'AdminController@uploadcsv'
+    'uses' => 'AdminController@uploadcsv',
+    'middleware' => 'auth',
 ]);
 
 $router->post('uploadzip', [
@@ -24,6 +25,11 @@ $router->post('uploadzip', [
 $router->post('findimages', [
     'as' => 'findimages',
     'uses' => 'SearchController@findimages'
+]);
+
+$router->post('login', [
+    'as' => 'login',
+    'uses' => 'UserController@login'
 ]);
 
 $router->get('/', function () use ($router) {
